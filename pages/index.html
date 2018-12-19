@@ -1,0 +1,80 @@
+<!-- This is a static file -->
+<!-- served from your routes in server.js -->
+
+<!-- You might want to try something fancier: -->
+<!-- html/nunjucks docs: https://mozilla.github.io/nunjucks/ -->
+<!-- pug: https://pugjs.org/ -->
+<!-- haml: http://haml.info/ -->
+<!-- hbs(handlebars): http://handlebarsjs.com/ -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Welcome to Glitch!</title>
+    <meta name="description" content="A cool thing made with Glitch">
+    <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="./styles/style.css">
+    
+    <!-- import the webpage's client-side javascript file -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/barba.js/1.0.0/barba.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
+    <script src="./tracking.js" defer></script>
+    <script src="./scripts/progress-bar.js" defer></script>
+  </head>
+  <body>
+    <div style="margin:0;" id="newPage">
+      <div style="margin: 0;" id="newPageBar"></div>
+    </div>
+    
+    <header>
+      <h1>
+        [BETA] Unique Package Tracker
+      </h1>
+    </header>
+
+    <div id="barba-wrapper">
+      <div class="barba-container" data-namespace="main">
+        <main>
+          <a href="/track">Hi</a>
+            <p class="bold">Please Enter the required information,</p>
+
+            <p>Tracking #:</p>
+
+            <form id="trackingForm" action="/track">
+              <input name="trackingNumber" type="text" maxlength="100" id="tracking_Number" placeholder="Tracking Number">
+              <select name="carrier" id="carrier">
+                <option value="fedex">Fedex</option>
+                <option value="ups">UPS</option>
+                <option value="usps">U.S. Postal Service</option>
+                <option value="stamps_com">Stamps.Com</option>
+              </select>
+              
+              <button type="button" onclick="verifyTrackingNumber();" id="submit-tracking-number">Submit Tracking Number</button>
+            </form>
+
+            <div hide() id="myProgress">
+              <div id="myBar"></div>
+            </div>
+            <p>Verifying Tracking Number</p>
+
+          </main>
+      </div>
+    </div>
+
+    <footer>
+      Made with <a href="https://glitch.com">Glitch</a>!
+    </footer>
+
+    <!-- include the Glitch button to show what the webpage is about and
+          to make it easier for folks to view source and remix -->
+    <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
+    <script src="https://button.glitch.me/button.js"></script>
+
+  </body>
+</html>
